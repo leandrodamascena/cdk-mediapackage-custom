@@ -5,7 +5,7 @@ const project = new AwsCdkConstructLibrary({
   authorName: 'Leandro Damascena',
   cdkVersion: '1.73.0',
   name: 'cdk-mediapackage-custom',
-  repository: 'https://github.com/leandro.damascena/cdk-mediapackage-custom.git',
+  repository: 'https://github.com/leandrodamascena/cdk-mediapackage-custom.git',
   keywords: [
     'mediapackage',
     'mediaservices',
