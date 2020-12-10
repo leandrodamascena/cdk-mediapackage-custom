@@ -22,7 +22,7 @@ export interface MediaPackageOptions {
   /*
     * MediaPackageEndpoint maxVideoBitsPerSecond
     */
-  readonly maxVideoBitsPerSecond: number;
+  readonly maxVideoBitsPerSecond: number; 
 
   /*
     * MediaPackageEndpoint minVideoBitsPerSecond
