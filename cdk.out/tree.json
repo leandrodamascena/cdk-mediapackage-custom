@@ -1,0 +1,318 @@
+{
+  "version": "tree-0.1",
+  "tree": {
+    "id": "App",
+    "path": "",
+    "children": {
+      "Tree": {
+        "id": "Tree",
+        "path": "Tree"
+      },
+      "MyStack": {
+        "id": "MyStack",
+        "path": "MyStack",
+        "children": {
+          "cdk-channel-package": {
+            "id": "cdk-channel-package",
+            "path": "MyStack/cdk-channel-package",
+            "children": {
+              "role-for-lambda-channel": {
+                "id": "role-for-lambda-channel",
+                "path": "MyStack/cdk-channel-package/role-for-lambda-channel",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "MyStack/cdk-channel-package/role-for-lambda-channel/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                      "aws:cdk:cloudformation:props": {
+                        "assumeRolePolicyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "sts:AssumeRole",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "managedPolicyArns": [
+                          {
+                            "Fn::Join": [
+                              "",
+                              [
+                                "arn:",
+                                {
+                                  "Ref": "AWS::Partition"
+                                },
+                                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                              ]
+                            ]
+                          },
+                          {
+                            "Fn::Join": [
+                              "",
+                              [
+                                "arn:",
+                                {
+                                  "Ref": "AWS::Partition"
+                                },
+                                ":iam::aws:policy/AWSElementalMediaPackageFullAccess"
+                              ]
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              },
+              "media-channel-packagemychannel": {
+                "id": "media-channel-packagemychannel",
+                "path": "MyStack/cdk-channel-package/media-channel-packagemychannel",
+                "children": {
+                  "Provider": {
+                    "id": "Provider",
+                    "path": "MyStack/cdk-channel-package/media-channel-packagemychannel/Provider"
+                  },
+                  "CustomResourcePolicy": {
+                    "id": "CustomResourcePolicy",
+                    "path": "MyStack/cdk-channel-package/media-channel-packagemychannel/CustomResourcePolicy",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "MyStack/cdk-channel-package/media-channel-packagemychannel/CustomResourcePolicy/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                          "aws:cdk:cloudformation:props": {
+                            "policyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": "mediapackage:CreateChannel",
+                                  "Effect": "Allow",
+                                  "Resource": "*"
+                                },
+                                {
+                                  "Action": "mediapackage:UpdateChannel",
+                                  "Effect": "Allow",
+                                  "Resource": "*"
+                                },
+                                {
+                                  "Action": "mediapackage:DeleteChannel",
+                                  "Effect": "Allow",
+                                  "Resource": "*"
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            },
+                            "policyName": "cdkchannelpackagemediachannelpackagemychannelCustomResourcePolicy8150683F",
+                            "roles": [
+                              {
+                                "Ref": "cdkchannelpackageroleforlambdachannelEAAF6DAC"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "MyStack/cdk-channel-package/media-channel-packagemychannel/Resource",
+                    "children": {
+                      "Default": {
+                        "id": "Default",
+                        "path": "MyStack/cdk-channel-package/media-channel-packagemychannel/Resource/Default"
+                      }
+                    }
+                  }
+                }
+              },
+              "MediaPackageEndpoint-AWSCustomResource-mychannel": {
+                "id": "MediaPackageEndpoint-AWSCustomResource-mychannel",
+                "path": "MyStack/cdk-channel-package/MediaPackageEndpoint-AWSCustomResource-mychannel",
+                "children": {
+                  "Provider": {
+                    "id": "Provider",
+                    "path": "MyStack/cdk-channel-package/MediaPackageEndpoint-AWSCustomResource-mychannel/Provider"
+                  },
+                  "CustomResourcePolicy": {
+                    "id": "CustomResourcePolicy",
+                    "path": "MyStack/cdk-channel-package/MediaPackageEndpoint-AWSCustomResource-mychannel/CustomResourcePolicy",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "MyStack/cdk-channel-package/MediaPackageEndpoint-AWSCustomResource-mychannel/CustomResourcePolicy/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                          "aws:cdk:cloudformation:props": {
+                            "policyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": "mediapackage:CreateOriginEndpoint",
+                                  "Effect": "Allow",
+                                  "Resource": "*"
+                                },
+                                {
+                                  "Action": "mediapackage:UpdateOriginEndpoint",
+                                  "Effect": "Allow",
+                                  "Resource": "*"
+                                },
+                                {
+                                  "Action": "mediapackage:DeleteOriginEndpoint",
+                                  "Effect": "Allow",
+                                  "Resource": "*"
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            },
+                            "policyName": "cdkchannelpackageMediaPackageEndpointAWSCustomResourcemychannelCustomResourcePolicy122F4887",
+                            "roles": [
+                              {
+                                "Ref": "cdkchannelpackageroleforlambdachannelEAAF6DAC"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "MyStack/cdk-channel-package/MediaPackageEndpoint-AWSCustomResource-mychannel/Resource",
+                    "children": {
+                      "Default": {
+                        "id": "Default",
+                        "path": "MyStack/cdk-channel-package/MediaPackageEndpoint-AWSCustomResource-mychannel/Resource/Default"
+                      }
+                    }
+                  }
+                }
+              },
+              "media-package-url-stream": {
+                "id": "media-package-url-stream",
+                "path": "MyStack/cdk-channel-package/media-package-url-stream"
+              }
+            }
+          },
+          "AWS679f53fac002430cb0da5b7982bd2287": {
+            "id": "AWS679f53fac002430cb0da5b7982bd2287",
+            "path": "MyStack/AWS679f53fac002430cb0da5b7982bd2287",
+            "children": {
+              "Code": {
+                "id": "Code",
+                "path": "MyStack/AWS679f53fac002430cb0da5b7982bd2287/Code",
+                "children": {
+                  "Stage": {
+                    "id": "Stage",
+                    "path": "MyStack/AWS679f53fac002430cb0da5b7982bd2287/Code/Stage"
+                  },
+                  "AssetBucket": {
+                    "id": "AssetBucket",
+                    "path": "MyStack/AWS679f53fac002430cb0da5b7982bd2287/Code/AssetBucket"
+                  }
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "MyStack/AWS679f53fac002430cb0da5b7982bd2287/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                  "aws:cdk:cloudformation:props": {
+                    "code": {
+                      "s3Bucket": {
+                        "Ref": "AssetParameters4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956S3Bucket72B03BC9"
+                      },
+                      "s3Key": {
+                        "Fn::Join": [
+                          "",
+                          [
+                            {
+                              "Fn::Select": [
+                                0,
+                                {
+                                  "Fn::Split": [
+                                    "||",
+                                    {
+                                      "Ref": "AssetParameters4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956S3VersionKey520B7554"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "Fn::Select": [
+                                1,
+                                {
+                                  "Fn::Split": [
+                                    "||",
+                                    {
+                                      "Ref": "AssetParameters4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956S3VersionKey520B7554"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        ]
+                      }
+                    },
+                    "handler": "index.handler",
+                    "role": {
+                      "Fn::GetAtt": [
+                        "cdkchannelpackageroleforlambdachannelEAAF6DAC",
+                        "Arn"
+                      ]
+                    },
+                    "runtime": "nodejs12.x",
+                    "timeout": 300
+                  }
+                }
+              }
+            }
+          },
+          "AssetParameters": {
+            "id": "AssetParameters",
+            "path": "MyStack/AssetParameters",
+            "children": {
+              "4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956": {
+                "id": "4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956",
+                "path": "MyStack/AssetParameters/4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956",
+                "children": {
+                  "S3Bucket": {
+                    "id": "S3Bucket",
+                    "path": "MyStack/AssetParameters/4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956/S3Bucket"
+                  },
+                  "S3VersionKey": {
+                    "id": "S3VersionKey",
+                    "path": "MyStack/AssetParameters/4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956/S3VersionKey"
+                  },
+                  "ArtifactHash": {
+                    "id": "ArtifactHash",
+                    "path": "MyStack/AssetParameters/4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956/ArtifactHash"
+                  }
+                }
+              }
+            }
+          },
+          "CDKMetadata": {
+            "id": "CDKMetadata",
+            "path": "MyStack/CDKMetadata",
+            "children": {
+              "Default": {
+                "id": "Default",
+                "path": "MyStack/CDKMetadata/Default"
+              },
+              "Condition": {
+                "id": "Condition",
+                "path": "MyStack/CDKMetadata/Condition"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

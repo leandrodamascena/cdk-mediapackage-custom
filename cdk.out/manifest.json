@@ -1,0 +1,297 @@
+{
+  "version": "7.0.0",
+  "artifacts": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "MyStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "MyStack.template.json"
+      },
+      "metadata": {
+        "/MyStack": [
+          {
+            "type": "aws:cdk:asset",
+            "data": {
+              "path": "asset.4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956",
+              "id": "4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956",
+              "packaging": "zip",
+              "sourceHash": "4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956",
+              "s3BucketParameter": "AssetParameters4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956S3Bucket72B03BC9",
+              "s3KeyParameter": "AssetParameters4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956S3VersionKey520B7554",
+              "artifactHashParameter": "AssetParameters4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956ArtifactHashD15A2D11"
+            },
+            "trace": [
+              "ConstructNode.addMetadata (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/core/lib/construct-compat.js:395:62)",
+              "LegacyStackSynthesizer.doAddFileAsset (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:167:29)",
+              "LegacyStackSynthesizer.addFileAsset (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:81:25)",
+              "Stack.addFileAsset (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/core/lib/stack.js:398:33)",
+              "LegacyStackSynthesizer.addFileAsset (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:85:31)",
+              "new Asset (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:41:44)",
+              "AssetCode.bind (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/aws-lambda/lib/code.js:225:26)",
+              "new Function (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/aws-lambda/lib/function.js:95:33)",
+              "SingletonFunction.ensureLambda (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.js:85:16)",
+              "new SingletonFunction (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.js:24:36)",
+              "new AwsCustomResource (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/custom-resources/lib/aws-custom-resource/aws-custom-resource.js:139:26)",
+              "new MediaPackageCustom (/home/leandro/cdk-custom/cdk-mediapackage-custom/lib/index.js:28:25)",
+              "Object.<anonymous> (/home/leandro/cdk-custom/cdk-mediapackage-custom/lib/index-deploy.js:7:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1015:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1035:10)",
+              "Module.load (internal/modules/cjs/loader.js:879:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:724:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/MyStack/cdk-channel-package/role-for-lambda-channel/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cdkchannelpackageroleforlambdachannelEAAF6DAC",
+            "trace": [
+              "new Role (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/aws-iam/lib/role.js:70:22)",
+              "new MediaPackageCustom (/home/leandro/cdk-custom/cdk-mediapackage-custom/lib/index.js:20:31)",
+              "Object.<anonymous> (/home/leandro/cdk-custom/cdk-mediapackage-custom/lib/index-deploy.js:7:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1015:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1035:10)",
+              "Module.load (internal/modules/cjs/loader.js:879:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:724:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/MyStack/cdk-channel-package/media-channel-packagemychannel/CustomResourcePolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cdkchannelpackagemediachannelpackagemychannelCustomResourcePolicy8150683F",
+            "trace": [
+              "new Policy (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/aws-iam/lib/policy.js:53:26)",
+              "new AwsCustomResource (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/custom-resources/lib/aws-custom-resource/aws-custom-resource.js:171:24)",
+              "new MediaPackageCustom (/home/leandro/cdk-custom/cdk-mediapackage-custom/lib/index.js:28:25)",
+              "Object.<anonymous> (/home/leandro/cdk-custom/cdk-mediapackage-custom/lib/index-deploy.js:7:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1015:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1035:10)",
+              "Module.load (internal/modules/cjs/loader.js:879:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:724:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/MyStack/cdk-channel-package/media-channel-packagemychannel/Resource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cdkchannelpackagemediachannelpackagemychannel9306C2C5",
+            "trace": [
+              "new CustomResource (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/core/lib/custom-resource.js:28:25)",
+              "new AwsCustomResource (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/custom-resources/lib/aws-custom-resource/aws-custom-resource.js:178:31)",
+              "new MediaPackageCustom (/home/leandro/cdk-custom/cdk-mediapackage-custom/lib/index.js:28:25)",
+              "Object.<anonymous> (/home/leandro/cdk-custom/cdk-mediapackage-custom/lib/index-deploy.js:7:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1015:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1035:10)",
+              "Module.load (internal/modules/cjs/loader.js:879:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:724:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/MyStack/cdk-channel-package/MediaPackageEndpoint-AWSCustomResource-mychannel/CustomResourcePolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cdkchannelpackageMediaPackageEndpointAWSCustomResourcemychannelCustomResourcePolicy122F4887",
+            "trace": [
+              "new Policy (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/aws-iam/lib/policy.js:53:26)",
+              "new AwsCustomResource (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/custom-resources/lib/aws-custom-resource/aws-custom-resource.js:171:24)",
+              "new MediaPackageCustom (/home/leandro/cdk-custom/cdk-mediapackage-custom/lib/index.js:65:30)",
+              "Object.<anonymous> (/home/leandro/cdk-custom/cdk-mediapackage-custom/lib/index-deploy.js:7:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1015:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1035:10)",
+              "Module.load (internal/modules/cjs/loader.js:879:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:724:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/MyStack/cdk-channel-package/MediaPackageEndpoint-AWSCustomResource-mychannel/Resource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cdkchannelpackageMediaPackageEndpointAWSCustomResourcemychannelF760AFE8",
+            "trace": [
+              "new CustomResource (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/core/lib/custom-resource.js:28:25)",
+              "new AwsCustomResource (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/custom-resources/lib/aws-custom-resource/aws-custom-resource.js:178:31)",
+              "new MediaPackageCustom (/home/leandro/cdk-custom/cdk-mediapackage-custom/lib/index.js:65:30)",
+              "Object.<anonymous> (/home/leandro/cdk-custom/cdk-mediapackage-custom/lib/index-deploy.js:7:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1015:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1035:10)",
+              "Module.load (internal/modules/cjs/loader.js:879:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:724:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/MyStack/cdk-channel-package/media-package-url-stream": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cdkchannelpackagemediapackageurlstream1A091F92",
+            "trace": [
+              "new MediaPackageCustom (/home/leandro/cdk-custom/cdk-mediapackage-custom/lib/index.js:125:9)",
+              "Object.<anonymous> (/home/leandro/cdk-custom/cdk-mediapackage-custom/lib/index-deploy.js:7:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1015:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1035:10)",
+              "Module.load (internal/modules/cjs/loader.js:879:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:724:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/MyStack/AWS679f53fac002430cb0da5b7982bd2287/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AWS679f53fac002430cb0da5b7982bd22872D164C4C",
+            "trace": [
+              "new Function (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/aws-lambda/lib/function.js:127:26)",
+              "SingletonFunction.ensureLambda (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.js:85:16)",
+              "new SingletonFunction (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.js:24:36)",
+              "new AwsCustomResource (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/custom-resources/lib/aws-custom-resource/aws-custom-resource.js:139:26)",
+              "new MediaPackageCustom (/home/leandro/cdk-custom/cdk-mediapackage-custom/lib/index.js:28:25)",
+              "Object.<anonymous> (/home/leandro/cdk-custom/cdk-mediapackage-custom/lib/index-deploy.js:7:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1015:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1035:10)",
+              "Module.load (internal/modules/cjs/loader.js:879:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:724:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/MyStack/AssetParameters/4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956/S3Bucket": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameters4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956S3Bucket72B03BC9",
+            "trace": [
+              "new FileAssetParameters (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/core/lib/private/asset-parameters.js:12:36)",
+              "LegacyStackSynthesizer.doAddFileAsset (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:157:22)",
+              "LegacyStackSynthesizer.addFileAsset (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:81:25)",
+              "Stack.addFileAsset (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/core/lib/stack.js:398:33)",
+              "LegacyStackSynthesizer.addFileAsset (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:85:31)",
+              "new Asset (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:41:44)",
+              "AssetCode.bind (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/aws-lambda/lib/code.js:225:26)",
+              "new Function (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/aws-lambda/lib/function.js:95:33)",
+              "SingletonFunction.ensureLambda (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.js:85:16)",
+              "new SingletonFunction (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.js:24:36)",
+              "new AwsCustomResource (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/custom-resources/lib/aws-custom-resource/aws-custom-resource.js:139:26)",
+              "new MediaPackageCustom (/home/leandro/cdk-custom/cdk-mediapackage-custom/lib/index.js:28:25)",
+              "Object.<anonymous> (/home/leandro/cdk-custom/cdk-mediapackage-custom/lib/index-deploy.js:7:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1015:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1035:10)",
+              "Module.load (internal/modules/cjs/loader.js:879:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:724:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/MyStack/AssetParameters/4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956/S3VersionKey": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameters4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956S3VersionKey520B7554",
+            "trace": [
+              "new FileAssetParameters (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/core/lib/private/asset-parameters.js:16:35)",
+              "LegacyStackSynthesizer.doAddFileAsset (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:157:22)",
+              "LegacyStackSynthesizer.addFileAsset (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:81:25)",
+              "Stack.addFileAsset (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/core/lib/stack.js:398:33)",
+              "LegacyStackSynthesizer.addFileAsset (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:85:31)",
+              "new Asset (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:41:44)",
+              "AssetCode.bind (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/aws-lambda/lib/code.js:225:26)",
+              "new Function (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/aws-lambda/lib/function.js:95:33)",
+              "SingletonFunction.ensureLambda (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.js:85:16)",
+              "new SingletonFunction (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.js:24:36)",
+              "new AwsCustomResource (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/custom-resources/lib/aws-custom-resource/aws-custom-resource.js:139:26)",
+              "new MediaPackageCustom (/home/leandro/cdk-custom/cdk-mediapackage-custom/lib/index.js:28:25)",
+              "Object.<anonymous> (/home/leandro/cdk-custom/cdk-mediapackage-custom/lib/index-deploy.js:7:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1015:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1035:10)",
+              "Module.load (internal/modules/cjs/loader.js:879:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:724:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/MyStack/AssetParameters/4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956/ArtifactHash": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameters4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956ArtifactHashD15A2D11",
+            "trace": [
+              "new FileAssetParameters (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/core/lib/private/asset-parameters.js:20:38)",
+              "LegacyStackSynthesizer.doAddFileAsset (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:157:22)",
+              "LegacyStackSynthesizer.addFileAsset (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:81:25)",
+              "Stack.addFileAsset (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/core/lib/stack.js:398:33)",
+              "LegacyStackSynthesizer.addFileAsset (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:85:31)",
+              "new Asset (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:41:44)",
+              "AssetCode.bind (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/aws-lambda/lib/code.js:225:26)",
+              "new Function (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/aws-lambda/lib/function.js:95:33)",
+              "SingletonFunction.ensureLambda (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.js:85:16)",
+              "new SingletonFunction (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.js:24:36)",
+              "new AwsCustomResource (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/custom-resources/lib/aws-custom-resource/aws-custom-resource.js:139:26)",
+              "new MediaPackageCustom (/home/leandro/cdk-custom/cdk-mediapackage-custom/lib/index.js:28:25)",
+              "Object.<anonymous> (/home/leandro/cdk-custom/cdk-mediapackage-custom/lib/index-deploy.js:7:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1015:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1035:10)",
+              "Module.load (internal/modules/cjs/loader.js:879:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:724:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/MyStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata",
+            "trace": [
+              "new MetadataResource (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/core/lib/private/metadata-resource.js:22:30)",
+              "/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/core/lib/private/synthesis.js:127:9",
+              "visit (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/core/lib/private/synthesis.js:181:9)",
+              "visit (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/core/lib/private/synthesis.js:178:9)",
+              "injectMetadataResources (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/core/lib/private/synthesis.js:116:5)",
+              "Object.synthesize (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/core/lib/private/synthesis.js:16:5)",
+              "App.synth (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/core/lib/stage.js:98:41)",
+              "process.<anonymous> (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/core/lib/app.js:58:51)",
+              "Object.onceWrapper (events.js:421:26)",
+              "process.emit (events.js:314:20)"
+            ]
+          }
+        ],
+        "/MyStack/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable",
+            "trace": [
+              "new MetadataResource (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/core/lib/private/metadata-resource.js:30:35)",
+              "/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/core/lib/private/synthesis.js:127:9",
+              "visit (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/core/lib/private/synthesis.js:181:9)",
+              "visit (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/core/lib/private/synthesis.js:178:9)",
+              "injectMetadataResources (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/core/lib/private/synthesis.js:116:5)",
+              "Object.synthesize (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/core/lib/private/synthesis.js:16:5)",
+              "App.synth (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/core/lib/stage.js:98:41)",
+              "process.<anonymous> (/home/leandro/cdk-custom/cdk-mediapackage-custom/node_modules/@aws-cdk/core/lib/app.js:58:51)",
+              "Object.onceWrapper (events.js:421:26)",
+              "process.emit (events.js:314:20)"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

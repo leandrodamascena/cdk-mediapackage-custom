@@ -1,0 +1,516 @@
+{
+  "Resources": {
+    "cdkchannelpackageroleforlambdachannelEAAF6DAC": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com"
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+              ]
+            ]
+          },
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":iam::aws:policy/AWSElementalMediaPackageFullAccess"
+              ]
+            ]
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "MyStack/cdk-channel-package/role-for-lambda-channel/Resource"
+      }
+    },
+    "cdkchannelpackagemediachannelpackagemychannelCustomResourcePolicy8150683F": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": "mediapackage:CreateChannel",
+              "Effect": "Allow",
+              "Resource": "*"
+            },
+            {
+              "Action": "mediapackage:UpdateChannel",
+              "Effect": "Allow",
+              "Resource": "*"
+            },
+            {
+              "Action": "mediapackage:DeleteChannel",
+              "Effect": "Allow",
+              "Resource": "*"
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "PolicyName": "cdkchannelpackagemediachannelpackagemychannelCustomResourcePolicy8150683F",
+        "Roles": [
+          {
+            "Ref": "cdkchannelpackageroleforlambdachannelEAAF6DAC"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "MyStack/cdk-channel-package/media-channel-packagemychannel/CustomResourcePolicy/Resource"
+      }
+    },
+    "cdkchannelpackagemediachannelpackagemychannel9306C2C5": {
+      "Type": "Custom::MediaPackageChannel",
+      "Properties": {
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "AWS679f53fac002430cb0da5b7982bd22872D164C4C",
+            "Arn"
+          ]
+        },
+        "Create": {
+          "service": "MediaPackage",
+          "action": "createChannel",
+          "parameters": {
+            "Id": "mychannel",
+            "Description": "Channel - mychannel"
+          },
+          "physicalResourceId": {
+            "id": "media-live-stack"
+          }
+        },
+        "Update": {
+          "service": "MediaPackage",
+          "action": "updateChannel",
+          "parameters": {
+            "Id": "mychannel",
+            "Description": "Channel - mychannel"
+          },
+          "physicalResourceId": {
+            "id": "media-live-stack"
+          }
+        },
+        "Delete": {
+          "service": "MediaPackage",
+          "action": "deleteChannel",
+          "parameters": {
+            "Id": "mychannel"
+          },
+          "physicalResourceId": {
+            "id": "media-live-stack"
+          }
+        },
+        "InstallLatestAwsSdk": true
+      },
+      "DependsOn": [
+        "cdkchannelpackagemediachannelpackagemychannelCustomResourcePolicy8150683F"
+      ],
+      "UpdateReplacePolicy": "Delete",
+      "DeletionPolicy": "Delete",
+      "Metadata": {
+        "aws:cdk:path": "MyStack/cdk-channel-package/media-channel-packagemychannel/Resource/Default"
+      }
+    },
+    "cdkchannelpackageMediaPackageEndpointAWSCustomResourcemychannelCustomResourcePolicy122F4887": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": "mediapackage:CreateOriginEndpoint",
+              "Effect": "Allow",
+              "Resource": "*"
+            },
+            {
+              "Action": "mediapackage:UpdateOriginEndpoint",
+              "Effect": "Allow",
+              "Resource": "*"
+            },
+            {
+              "Action": "mediapackage:DeleteOriginEndpoint",
+              "Effect": "Allow",
+              "Resource": "*"
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "PolicyName": "cdkchannelpackageMediaPackageEndpointAWSCustomResourcemychannelCustomResourcePolicy122F4887",
+        "Roles": [
+          {
+            "Ref": "cdkchannelpackageroleforlambdachannelEAAF6DAC"
+          }
+        ]
+      },
+      "DependsOn": [
+        "cdkchannelpackagemediachannelpackagemychannelCustomResourcePolicy8150683F",
+        "cdkchannelpackagemediachannelpackagemychannel9306C2C5"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "MyStack/cdk-channel-package/MediaPackageEndpoint-AWSCustomResource-mychannel/CustomResourcePolicy/Resource"
+      }
+    },
+    "cdkchannelpackageMediaPackageEndpointAWSCustomResourcemychannelF760AFE8": {
+      "Type": "Custom::MediaPackageHlsEndpoint",
+      "Properties": {
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "AWS679f53fac002430cb0da5b7982bd22872D164C4C",
+            "Arn"
+          ]
+        },
+        "Create": {
+          "service": "MediaPackage",
+          "action": "createOriginEndpoint",
+          "parameters": {
+            "ChannelId": "mychannel",
+            "Id": "Endpoint-mychannel",
+            "Description": "Endpoint - mychannel",
+            "HlsPackage": {
+              "SegmentDurationSeconds": 5,
+              "PlaylistWindowSeconds": 60,
+              "StreamSelection": {
+                "MaxVideoBitsPerSecond": 2147483647,
+                "MinVideoBitsPerSecond": 0,
+                "StreamOrder": "ORIGINAL"
+              }
+            }
+          },
+          "physicalResourceId": {
+            "id": "media-live-stack-endpoint"
+          }
+        },
+        "Update": {
+          "service": "MediaPackage",
+          "action": "updateOriginEndpoint",
+          "parameters": {
+            "ChannelId": "mychannel",
+            "Id": "Endpoint-mychannel",
+            "Description": "Endpoint - mychannel",
+            "HlsPackage": {
+              "SegmentDurationSeconds": 5,
+              "PlaylistWindowSeconds": 60,
+              "StreamSelection": {
+                "MaxVideoBitsPerSecond": 2147483647,
+                "MinVideoBitsPerSecond": 0,
+                "StreamOrder": "ORIGINAL"
+              }
+            }
+          },
+          "physicalResourceId": {
+            "id": "media-live-stack-endpoint"
+          }
+        },
+        "Delete": {
+          "service": "MediaPackage",
+          "action": "deleteOriginEndpoint",
+          "parameters": {
+            "Id": "Endpoint-mychannel"
+          },
+          "physicalResourceId": {
+            "id": "media-live-stack-endpoint"
+          }
+        },
+        "InstallLatestAwsSdk": true
+      },
+      "DependsOn": [
+        "cdkchannelpackagemediachannelpackagemychannelCustomResourcePolicy8150683F",
+        "cdkchannelpackagemediachannelpackagemychannel9306C2C5",
+        "cdkchannelpackageMediaPackageEndpointAWSCustomResourcemychannelCustomResourcePolicy122F4887"
+      ],
+      "UpdateReplacePolicy": "Delete",
+      "DeletionPolicy": "Delete",
+      "Metadata": {
+        "aws:cdk:path": "MyStack/cdk-channel-package/MediaPackageEndpoint-AWSCustomResource-mychannel/Resource/Default"
+      }
+    },
+    "AWS679f53fac002430cb0da5b7982bd22872D164C4C": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Ref": "AssetParameters4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956S3Bucket72B03BC9"
+          },
+          "S3Key": {
+            "Fn::Join": [
+              "",
+              [
+                {
+                  "Fn::Select": [
+                    0,
+                    {
+                      "Fn::Split": [
+                        "||",
+                        {
+                          "Ref": "AssetParameters4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956S3VersionKey520B7554"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Fn::Select": [
+                    1,
+                    {
+                      "Fn::Split": [
+                        "||",
+                        {
+                          "Ref": "AssetParameters4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956S3VersionKey520B7554"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            ]
+          }
+        },
+        "Handler": "index.handler",
+        "Role": {
+          "Fn::GetAtt": [
+            "cdkchannelpackageroleforlambdachannelEAAF6DAC",
+            "Arn"
+          ]
+        },
+        "Runtime": "nodejs12.x",
+        "Timeout": 300
+      },
+      "DependsOn": [
+        "cdkchannelpackageroleforlambdachannelEAAF6DAC"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "MyStack/AWS679f53fac002430cb0da5b7982bd2287/Resource",
+        "aws:asset:path": "asset.4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956",
+        "aws:asset:property": "Code"
+      }
+    },
+    "CDKMetadata": {
+      "Type": "AWS::CDK::Metadata",
+      "Properties": {
+        "Modules": "aws-cdk=1.77.0,@aws-cdk/assets=1.77.0,@aws-cdk/aws-applicationautoscaling=1.77.0,@aws-cdk/aws-autoscaling-common=1.77.0,@aws-cdk/aws-cloudwatch=1.77.0,@aws-cdk/aws-codeguruprofiler=1.77.0,@aws-cdk/aws-ec2=1.77.0,@aws-cdk/aws-ecr=1.77.0,@aws-cdk/aws-ecr-assets=1.77.0,@aws-cdk/aws-events=1.77.0,@aws-cdk/aws-iam=1.77.0,@aws-cdk/aws-kms=1.77.0,@aws-cdk/aws-lambda=1.77.0,@aws-cdk/aws-logs=1.77.0,@aws-cdk/aws-s3=1.77.0,@aws-cdk/aws-s3-assets=1.77.0,@aws-cdk/aws-sqs=1.77.0,@aws-cdk/aws-ssm=1.77.0,@aws-cdk/cloud-assembly-schema=1.77.0,@aws-cdk/core=1.77.0,@aws-cdk/custom-resources=1.77.0,@aws-cdk/cx-api=1.77.0,@aws-cdk/region-info=1.77.0,jsii-runtime=node.js/v12.19.0"
+      },
+      "Metadata": {
+        "aws:cdk:path": "MyStack/CDKMetadata/Default"
+      },
+      "Condition": "CDKMetadataAvailable"
+    }
+  },
+  "Outputs": {
+    "cdkchannelpackagemediapackageurlstream1A091F92": {
+      "Value": {
+        "Fn::GetAtt": [
+          "cdkchannelpackageMediaPackageEndpointAWSCustomResourcemychannelF760AFE8",
+          "Url"
+        ]
+      }
+    }
+  },
+  "Parameters": {
+    "AssetParameters4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956S3Bucket72B03BC9": {
+      "Type": "String",
+      "Description": "S3 bucket for asset \"4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956\""
+    },
+    "AssetParameters4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956S3VersionKey520B7554": {
+      "Type": "String",
+      "Description": "S3 key for asset version \"4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956\""
+    },
+    "AssetParameters4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956ArtifactHashD15A2D11": {
+      "Type": "String",
+      "Description": "Artifact hash for asset \"4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956\""
+    }
+  },
+  "Conditions": {
+    "CDKMetadataAvailable": {
+      "Fn::Or": [
+        {
+          "Fn::Or": [
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-east-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-northeast-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-northeast-2"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-south-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-southeast-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-southeast-2"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ca-central-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "cn-north-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "cn-northwest-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-central-1"
+              ]
+            }
+          ]
+        },
+        {
+          "Fn::Or": [
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-north-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-west-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-west-2"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-west-3"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "me-south-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "sa-east-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-east-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-east-2"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-west-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-west-2"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
