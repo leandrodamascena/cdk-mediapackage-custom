@@ -2,7 +2,7 @@
   "name": "cdk-mediapackage-custom",
   "repository": {
     "type": "git",
-    "url": "https://github.com/leandro.damascena/cdk-mediapackage-custom.git"
+    "url": "https://github.com/leandrodamascena/cdk-mediapackage-custom.git"
   },
   "bin": {},
   "scripts": {
@@ -72,7 +72,7 @@
   ],
   "main": "lib/index.js",
   "license": "Apache-2.0",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "jest": {
     "clearMocks": true,
     "collectCoverage": true,
